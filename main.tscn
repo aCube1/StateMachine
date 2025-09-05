@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://b1oc2f73q8cpj"]
+
+[ext_resource type="Script" uid="uid://copbi6rxwo47a" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://31yw6k1arsbo" path="res://addons/state_machine/core/state_machine.gd" id="2_1bvp3"]
+[ext_resource type="Script" uid="uid://cjvqg76v55oav" path="res://states/on_main.gd" id="3_lquwl"]
+[ext_resource type="Script" uid="uid://b8vx7g8ot0w3h" path="res://states/on_menu.gd" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://cdbau8gvb0025" path="res://states/on_options.gd" id="5_7mycd"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("2_1bvp3")
+metadata/_custom_type_script = "uid://31yw6k1arsbo"
+
+[node name="OnMain" type="Node" parent="StateMachine"]
+script = ExtResource("3_lquwl")
+
+[node name="OnMenu" type="Node" parent="StateMachine"]
+script = ExtResource("4_lquwl")
+
+[node name="OnOptions" type="Node" parent="StateMachine"]
+script = ExtResource("5_7mycd")
+
+[node name="Layer" type="CanvasLayer" parent="."]
+
+[node name="CenterContainer" type="CenterContainer" parent="Layer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Layer/CenterContainer"]
+layout_mode = 2
+
+[node name="Text" type="Label" parent="Layer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Text Goes Here :D"
+
+[node name="Instructions" type="Label" parent="Layer/CenterContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Instructions"
